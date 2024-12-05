@@ -1,3 +1,0 @@
-```bash
-conda activate diffusers
-```

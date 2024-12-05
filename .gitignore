@@ -1,5 +1,8 @@
 # Initially taken from GitHub's Python gitignore file
 
+# Drafts
+drafts/
+
 # Model weights
 *.safetensors
 *.pt

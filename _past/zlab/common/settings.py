@@ -1,1 +1,0 @@
-SD3_OFFICIAL_DIR = "/scratch0/zy45/work/code/diffusers/zlab/models/official/"
