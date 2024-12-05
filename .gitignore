@@ -1,5 +1,9 @@
 # Initially taken from GitHub's Python gitignore file
 
+# Model weights
+*.safetensors
+*.pt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

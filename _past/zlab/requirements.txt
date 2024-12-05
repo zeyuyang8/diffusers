@@ -1,0 +1,4 @@
+ipykernel
+wandb
+einops
+fire

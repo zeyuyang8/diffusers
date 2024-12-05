@@ -1,0 +1,175 @@
+11/17/2024 17:26:56 - INFO - __main__ - Distributed environment: MULTI_GPU  Backend: nccl
+Num processes: 8
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: fp16
+
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+11/17/2024 17:26:57 - INFO - __main__ - Distributed environment: MULTI_GPU  Backend: nccl
+Num processes: 8
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: fp16
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank1]:     main(args)
+[rank1]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1168, in main
+[rank1]:     tokenizer_one = CLIPTokenizer.from_pretrained(
+[rank1]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2197, in from_pretrained
+[rank1]:     raise EnvironmentError(
+[rank1]: OSError: Can't load tokenizer for 'stabilityai/stable-diffusion-3-medium-diffusers'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'stabilityai/stable-diffusion-3-medium-diffusers' is the correct path to a directory containing all relevant files for a CLIPTokenizer tokenizer.
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank2]:     main(args)
+[rank2]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1076, in main
+[rank2]:     accelerator = Accelerator(
+[rank2]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/accelerator.py", line 415, in __init__
+[rank2]:     self.state = AcceleratorState(
+[rank2]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 861, in __init__
+[rank2]:     PartialState(cpu, **kwargs)
+[rank2]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 276, in __init__
+[rank2]:     self.set_device()
+[rank2]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 791, in set_device
+[rank2]:     device_module.set_device(self.device)
+[rank2]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/torch/cuda/__init__.py", line 478, in set_device
+[rank2]:     torch._C._cuda_setDevice(device)
+[rank2]: RuntimeError: CUDA error: uncorrectable ECC error encountered
+[rank2]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank7]:     main(args)
+[rank7]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1076, in main
+[rank7]:     accelerator = Accelerator(
+[rank7]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/accelerator.py", line 415, in __init__
+[rank7]:     self.state = AcceleratorState(
+[rank7]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 861, in __init__
+[rank7]:     PartialState(cpu, **kwargs)
+[rank7]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 276, in __init__
+[rank7]:     self.set_device()
+[rank7]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 791, in set_device
+[rank7]:     device_module.set_device(self.device)
+[rank7]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/torch/cuda/__init__.py", line 478, in set_device
+[rank7]:     torch._C._cuda_setDevice(device)
+[rank7]: RuntimeError: CUDA error: uncorrectable ECC error encountered
+[rank7]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank4]:     main(args)
+[rank4]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1076, in main
+[rank4]:     accelerator = Accelerator(
+[rank4]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/accelerator.py", line 415, in __init__
+[rank4]:     self.state = AcceleratorState(
+[rank4]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 861, in __init__
+[rank4]:     PartialState(cpu, **kwargs)
+[rank4]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 276, in __init__
+[rank4]:     self.set_device()
+[rank4]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/state.py", line 791, in set_device
+[rank4]:     device_module.set_device(self.device)
+[rank4]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/torch/cuda/__init__.py", line 478, in set_device
+[rank4]:     torch._C._cuda_setDevice(device)
+[rank4]: RuntimeError: CUDA error: out of memory
+[rank4]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+11/17/2024 17:26:57 - INFO - __main__ - Distributed environment: MULTI_GPU  Backend: nccl
+Num processes: 8
+Process index: 6
+Local process index: 6
+Device: cuda:6
+
+Mixed precision type: fp16
+
+11/17/2024 17:26:57 - INFO - __main__ - Distributed environment: MULTI_GPU  Backend: nccl
+Num processes: 8
+Process index: 5
+Local process index: 5
+Device: cuda:5
+
+Mixed precision type: fp16
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank0]:     main(args)
+[rank0]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1168, in main
+[rank0]:     tokenizer_one = CLIPTokenizer.from_pretrained(
+[rank0]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2197, in from_pretrained
+[rank0]:     raise EnvironmentError(
+[rank0]: OSError: Can't load tokenizer for 'stabilityai/stable-diffusion-3-medium-diffusers'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'stabilityai/stable-diffusion-3-medium-diffusers' is the correct path to a directory containing all relevant files for a CLIPTokenizer tokenizer.
+11/17/2024 17:26:57 - INFO - __main__ - Distributed environment: MULTI_GPU  Backend: nccl
+Num processes: 8
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: fp16
+
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank6]:     main(args)
+[rank6]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1168, in main
+[rank6]:     tokenizer_one = CLIPTokenizer.from_pretrained(
+[rank6]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2197, in from_pretrained
+[rank6]:     raise EnvironmentError(
+[rank6]: OSError: Can't load tokenizer for 'stabilityai/stable-diffusion-3-medium-diffusers'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'stabilityai/stable-diffusion-3-medium-diffusers' is the correct path to a directory containing all relevant files for a CLIPTokenizer tokenizer.
+[rank0]:[W1117 17:26:58.042737597 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank3]:     main(args)
+[rank3]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1168, in main
+[rank3]:     tokenizer_one = CLIPTokenizer.from_pretrained(
+[rank3]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2197, in from_pretrained
+[rank3]:     raise EnvironmentError(
+[rank3]: OSError: Can't load tokenizer for 'stabilityai/stable-diffusion-3-medium-diffusers'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'stabilityai/stable-diffusion-3-medium-diffusers' is the correct path to a directory containing all relevant files for a CLIPTokenizer tokenizer.
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1968, in <module>
+[rank5]:     main(args)
+[rank5]:   File "/scratch0/zy45/work/code/diffusers/zlab/dreambooth/train_dreambooth_lora_sd3.py", line 1168, in main
+[rank5]:     tokenizer_one = CLIPTokenizer.from_pretrained(
+[rank5]:   File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/transformers/tokenization_utils_base.py", line 2197, in from_pretrained
+[rank5]:     raise EnvironmentError(
+[rank5]: OSError: Can't load tokenizer for 'stabilityai/stable-diffusion-3-medium-diffusers'. If you were trying to load it from 'https://huggingface.co/models', make sure you don't have a local directory with the same name. Otherwise, make sure 'stabilityai/stable-diffusion-3-medium-diffusers' is the correct path to a directory containing all relevant files for a CLIPTokenizer tokenizer.
+W1117 17:26:58.507000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987264 closing signal SIGTERM
+W1117 17:26:58.508000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987265 closing signal SIGTERM
+W1117 17:26:58.508000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987267 closing signal SIGTERM
+W1117 17:26:58.509000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987268 closing signal SIGTERM
+W1117 17:26:58.509000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987269 closing signal SIGTERM
+W1117 17:26:58.510000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987270 closing signal SIGTERM
+W1117 17:26:58.510000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 987271 closing signal SIGTERM
+E1117 17:26:58.671000 987151 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 2 (pid: 987266) of binary: /scratch0/zy45/anaconda3/envs/diffusers/bin/python
+Traceback (most recent call last):
+  File "/scratch0/zy45/anaconda3/envs/diffusers/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/commands/accelerate_cli.py", line 48, in main
+    args.func(args)
+  File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/commands/launch.py", line 1159, in launch_command
+    multi_gpu_launcher(args)
+  File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/accelerate/commands/launch.py", line 793, in multi_gpu_launcher
+    distrib_run.run(args)
+  File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/scratch0/zy45/anaconda3/envs/diffusers/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train_dreambooth_lora_sd3.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-11-17_17:26:58
+  host      : terminator5.cs.rice.edu.cs.rice.edu
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 987266)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
