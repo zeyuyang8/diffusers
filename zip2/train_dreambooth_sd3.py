@@ -68,81 +68,81 @@ check_min_version("0.32.0.dev0")
 logger = get_logger(__name__)
 
 
-def save_model_card(
-    repo_id: str,
-    images=None,
-    base_model: str = None,
-    train_text_encoder=False,
-    instance_prompt=None,
-    validation_prompt=None,
-    repo_folder=None,
-):
-    if "large" in base_model:
-        model_variant = "SD3.5-Large"
-        license_url = "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/blob/main/LICENSE.md"
-        variant_tags = ["sd3.5-large", "sd3.5", "sd3.5-diffusers"]
-    else:
-        model_variant = "SD3"
-        license_url = "https://huggingface.co/stabilityai/stable-diffusion-3-medium/blob/main/LICENSE.md"
-        variant_tags = ["sd3", "sd3-diffusers"]
+# def save_model_card(
+#     repo_id: str,
+#     images=None,
+#     base_model: str = None,
+#     train_text_encoder=False,
+#     instance_prompt=None,
+#     validation_prompt=None,
+#     repo_folder=None,
+# ):
+#     if "large" in base_model:
+#         model_variant = "SD3.5-Large"
+#         license_url = "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/blob/main/LICENSE.md"
+#         variant_tags = ["sd3.5-large", "sd3.5", "sd3.5-diffusers"]
+#     else:
+#         model_variant = "SD3"
+#         license_url = "https://huggingface.co/stabilityai/stable-diffusion-3-medium/blob/main/LICENSE.md"
+#         variant_tags = ["sd3", "sd3-diffusers"]
 
-    widget_dict = []
-    if images is not None:
-        for i, image in enumerate(images):
-            image.save(os.path.join(repo_folder, f"image_{i}.png"))
-            widget_dict.append(
-                {"text": validation_prompt if validation_prompt else " ", "output": {"url": f"image_{i}.png"}}
-            )
+#     widget_dict = []
+#     if images is not None:
+#         for i, image in enumerate(images):
+#             image.save(os.path.join(repo_folder, f"image_{i}.png"))
+#             widget_dict.append(
+#                 {"text": validation_prompt if validation_prompt else " ", "output": {"url": f"image_{i}.png"}}
+#             )
 
-    model_description = f"""
-# {model_variant} DreamBooth - {repo_id}
+#     model_description = f"""
+# # {model_variant} DreamBooth - {repo_id}
 
-<Gallery />
+# <Gallery />
 
-## Model description
+# ## Model description
 
-These are {repo_id} DreamBooth weights for {base_model}.
+# These are {repo_id} DreamBooth weights for {base_model}.
 
-The weights were trained using [DreamBooth](https://dreambooth.github.io/) with the [SD3 diffusers trainer](https://github.com/huggingface/diffusers/blob/main/examples/dreambooth/README_sd3.md).
+# The weights were trained using [DreamBooth](https://dreambooth.github.io/) with the [SD3 diffusers trainer](https://github.com/huggingface/diffusers/blob/main/examples/dreambooth/README_sd3.md).
 
-Was the text encoder fine-tuned? {train_text_encoder}.
+# Was the text encoder fine-tuned? {train_text_encoder}.
 
-## Trigger words
+# ## Trigger words
 
-You should use `{instance_prompt}` to trigger the image generation.
+# You should use `{instance_prompt}` to trigger the image generation.
 
-## Use it with the [🧨 diffusers library](https://github.com/huggingface/diffusers)
+# ## Use it with the [🧨 diffusers library](https://github.com/huggingface/diffusers)
 
-```py
-from diffusers import AutoPipelineForText2Image
-import torch
-pipeline = AutoPipelineForText2Image.from_pretrained('{repo_id}', torch_dtype=torch.float16).to('cuda')
-image = pipeline('{validation_prompt if validation_prompt else instance_prompt}').images[0]
-```
+# ```py
+# from diffusers import AutoPipelineForText2Image
+# import torch
+# pipeline = AutoPipelineForText2Image.from_pretrained('{repo_id}', torch_dtype=torch.float16).to('cuda')
+# image = pipeline('{validation_prompt if validation_prompt else instance_prompt}').images[0]
+# ```
 
-## License
+# ## License
 
-Please adhere to the licensing terms as described `[here]({license_url})`.
-"""
-    model_card = load_or_create_model_card(
-        repo_id_or_path=repo_id,
-        from_training=True,
-        license="other",
-        base_model=base_model,
-        prompt=instance_prompt,
-        model_description=model_description,
-        widget=widget_dict,
-    )
-    tags = [
-        "text-to-image",
-        "diffusers-training",
-        "diffusers",
-        "template:sd-lora",
-    ]
-    tags += variant_tags
+# Please adhere to the licensing terms as described `[here]({license_url})`.
+# """
+#     model_card = load_or_create_model_card(
+#         repo_id_or_path=repo_id,
+#         from_training=True,
+#         license="other",
+#         base_model=base_model,
+#         prompt=instance_prompt,
+#         model_description=model_description,
+#         widget=widget_dict,
+#     )
+#     tags = [
+#         "text-to-image",
+#         "diffusers-training",
+#         "diffusers",
+#         "template:sd-lora",
+#     ]
+#     tags += variant_tags
 
-    model_card = populate_model_card(model_card, tags=tags)
-    model_card.save(os.path.join(repo_folder, "README.md"))
+#     model_card = populate_model_card(model_card, tags=tags)
+#     model_card.save(os.path.join(repo_folder, "README.md"))
 
 
 def load_text_encoders(class_one, class_two, class_three):
